@@ -1,0 +1,35 @@
+<form (ngSubmit)="submitContact()">
+
+  <h5 class = "text-center m-4">
+    Ajouter un contact
+  </h5>
+<!--{{ nouveauContact | json }} juste pour verifier que ca fonctionne-->
+<!--  name-->
+<div class="form-group">
+  <input type="text"
+         name="name"
+         [(ngModel)]="nouveauContact.name"
+         placeholder="Saisissez votre nom complet"
+         class="form-control">
+</div>
+<!--  email-->
+  <div class="form-group">
+    <input type="email"
+           name="email"
+           [(ngModel)]="nouveauContact.email"
+           placeholder="Saisissez votre email"
+           class="form-control">
+  </div>
+<!--  tel-->
+  <div class="form-group">
+    <input type="tel"
+           name="tel"
+           [(ngModel)]="nouveauContact.tel"
+           placeholder="Saisissez votre N° de téléphone "
+           class="form-control">
+  </div>
+
+    <button class = "btn btn-block btn-dark ">
+      Créer le Contact
+    </button>
+</form>

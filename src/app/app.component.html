@@ -1,0 +1,52 @@
+<!--
+<h1>{{ title }}</h1>
+<h3>
+  {{ unContact.name }}
+  <small>{{ unContact.email }}</small>
+</h3>
+<ul>
+  <li *ngFor="let contact of mesContacts">
+    {{ contact.name + ' ' + contact.email }}
+  </li>
+</ul>
+-->
+
+<div class="container">
+  <header class="mb-4">
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="navbar-header">
+        <a href="/" class="navbar-brand">
+          {{ title }}
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="row">
+
+    <!-- Liste des contacts -->
+    <div class="col-sm-4">
+      <div class="list-group">
+        <a href="#"
+           *ngFor="let contact of mesContacts"
+           (click)="displayContact(contact)"
+           [class.active]="contact === contactProfil"
+           class="list-group-item list-group-item-action">
+          {{ contact.name }}
+        </a>
+      </div> <!-- /.list-group -->
+      <app-new-contact (newContactEvent)="addContact($event)"></app-new-contact>
+    </div> <!-- /.col-sm-4 -->
+
+    <!--  Profil du contact -->
+    <div class="col-sm-8">
+      <!--
+        Ici, j'affiche mon composant
+        ProfilComponent.
+      -->
+      <app-profil [contactProfil]="contactProfil"></app-profil>
+    </div> <!-- /.col-sm-8 -->
+
+  </div> <!-- /.row -->
+
+</div> <!-- /.container -->
